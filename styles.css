@@ -389,11 +389,12 @@ h1, h2, h3, h4 {
 
 .svc-name {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem; font-weight: 700; color: #000;
+  font-size: 1rem; font-weight: 900; color: #000;
   margin-bottom: 0.35rem;
-  text-shadow: 0 1px 3px rgba(255,255,255,0.8), 0 0 8px rgba(255,255,255,0.6);
+  -webkit-text-stroke: 0.5px #000;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5), -1px -1px 0 rgba(255,255,255,0.5), 1px -1px 0 rgba(255,255,255,0.5), -1px 1px 0 rgba(255,255,255,0.5);
 }
-.svc-desc { font-size: 0.76rem; color: #111; line-height: 1.55; margin-bottom: 0.8rem; text-shadow: 0 1px 3px rgba(255,255,255,0.8), 0 0 8px rgba(255,255,255,0.6); }
+.svc-desc { font-size: 0.78rem; font-weight: 700; color: #000; line-height: 1.55; margin-bottom: 0.8rem; -webkit-text-stroke: 0.3px #000; text-shadow: 1px 1px 0 rgba(255,255,255,0.5), -1px -1px 0 rgba(255,255,255,0.5), 1px -1px 0 rgba(255,255,255,0.5), -1px 1px 0 rgba(255,255,255,0.5); }
 .svc-arrow {
   width: 28px; height: 28px; border-radius: 50%;
   border: 1.5px solid var(--border);
