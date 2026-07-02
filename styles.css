@@ -199,19 +199,13 @@ h1, h2, h3, h4 {
 /* Hero image panel */
 .hero-image {
   position: relative; overflow: hidden;
-  background: linear-gradient(145deg, #D4E8E0 0%, #B8D8CC 40%, #9FC9BA 100%);
+  background: #0D2820;
 }
-.hero-image-bg {
+.hero-video {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 60% 20%, rgba(26,60,52,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(201,168,76,0.10) 0%, transparent 45%);
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
-.hero-image-art {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.hero-svg-art { width: 75%; max-width: 420px; opacity: 0.9; }
 
 .hero-badge {
   position: absolute; bottom: 2.5rem; right: 2rem;
