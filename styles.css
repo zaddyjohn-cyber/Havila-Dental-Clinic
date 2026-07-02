@@ -341,46 +341,66 @@ h1, h2, h3, h4 {
   gap: 1rem;
 }
 .service-card {
-  background: var(--off-white);
-  border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.8rem 1.4rem;
-  text-align: center; position: relative;
-  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+  display: flex; flex-direction: column;
   overflow: hidden;
-  transition: all var(--t);
+  min-height: 320px;
+  text-decoration: none;
+  transition: transform var(--t), box-shadow var(--t);
 }
-.service-card::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 3px;
-  background: var(--gold); transform: scaleX(0); transition: transform var(--t);
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+/* video / image background */
+.svc-media {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background-size: cover; background-position: center;
+  transition: transform 0.6s var(--ease);
 }
-.service-card:hover { background: var(--white); box-shadow: var(--shadow-lg); transform: translateY(-5px); border-color: transparent; }
-.service-card:hover::after { transform: scaleX(1); }
+.service-card:hover .svc-media { transform: scale(1.06); }
+
+/* dark green overlay */
+.svc-overlay {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 1.8rem 1.2rem;
+  height: 100%;
+  background: linear-gradient(to top, rgba(10,30,24,0.92) 0%, rgba(26,60,52,0.72) 60%, rgba(26,60,52,0.55) 100%);
+  transition: background var(--t);
+}
+.service-card:hover .svc-overlay {
+  background: linear-gradient(to top, rgba(10,30,24,0.82) 0%, rgba(26,60,52,0.55) 60%, rgba(26,60,52,0.35) 100%);
+}
+
 .svc-icon {
-  width: 54px; height: 54px; border-radius: 50%;
-  background: var(--green-dim);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.2);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1rem; transition: background var(--t);
+  margin: 0 auto 1rem; transition: background var(--t), border-color var(--t);
 }
-.service-card:hover .svc-icon { background: var(--green); }
-.svc-icon svg { width: 26px; height: 26px; stroke: var(--green); fill: none; transition: stroke var(--t); }
-.service-card:hover .svc-icon svg { stroke: var(--white); }
+.service-card:hover .svc-icon { background: var(--gold); border-color: var(--gold); }
+.svc-icon svg { width: 24px; height: 24px; stroke: var(--white); fill: none; }
+.service-card:hover .svc-icon svg { stroke: var(--green-dark); }
+
 .svc-name {
   font-family: 'Playfair Display', serif;
-  font-size: 0.92rem; font-weight: 700; color: var(--text);
+  font-size: 0.95rem; font-weight: 700; color: var(--white);
   margin-bottom: 0.5rem;
 }
-.svc-desc { font-size: 0.77rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+.svc-desc { font-size: 0.76rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
 .svc-arrow {
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 1.5px solid var(--border);
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.3);
   display: flex; align-items: center; justify-content: center;
   margin-top: auto; transition: all var(--t);
 }
-.service-card:hover .svc-arrow { border-color: var(--gold); background: var(--gold-dim); }
-.svc-arrow svg { width: 13px; height: 13px; stroke: var(--text-muted); fill: none; transition: stroke var(--t); }
-.service-card:hover .svc-arrow svg { stroke: var(--gold); }
+.service-card:hover .svc-arrow { border-color: var(--gold); background: var(--gold); }
+.svc-arrow svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.7); fill: none; transition: stroke var(--t); }
+.service-card:hover .svc-arrow svg { stroke: var(--green-dark); }
 
 /* ── WHY US ──────────────────────────────────────────────── */
 .why { padding: 7rem 0; background: var(--off-white); }
