@@ -41,6 +41,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
+  /* ── Video lazy-play: pause off-screen videos to save CPU/bandwidth ── */
+  const heroVideo = document.querySelector('.hero-video');
+  const allVideos = document.querySelectorAll('video');
+
+  allVideos.forEach(v => {
+    if (v === heroVideo) return;
+    v.removeAttribute('autoplay');
+    v.preload = 'none';
+  });
+
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) {
+          if (v.preload === 'none') v.preload = 'metadata';
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    allVideos.forEach(v => {
+      if (v !== heroVideo) videoObserver.observe(v);
+    });
+  }
+
   /* ── Animated counters ───────────────────────────────────── */
   const counterObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
