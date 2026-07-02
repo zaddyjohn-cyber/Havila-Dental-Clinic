@@ -109,58 +109,49 @@
 <section class="about">
   <div class="container">
     <div class="about-grid">
+
+      <!-- Left: text -->
       <div class="reveal-left">
         <p class="about-eyebrow">About Havila Dental</p>
         <h2>Where Expertise Meets <span class="gold">Empathy</span></h2>
         <div class="about-divider"></div>
         <p>Our mission is simple: to provide outstanding dental care in a warm and welcoming environment. We're here to help you smile with confidence, using the latest techniques delivered by our experienced team.</p>
-        <a href="about.html" class="btn-primary">
+
+        <!-- inline stats row -->
+        <div class="about-inline-stats">
+          <div class="about-inline-stat">
+            <span class="about-stat-num" data-target="10" data-suffix="+">0+</span>
+            <span class="about-stat-lbl">Years of Experience</span>
+          </div>
+          <div class="about-stat-divider"></div>
+          <div class="about-inline-stat">
+            <span class="about-stat-num" data-target="2000" data-suffix="+">0+</span>
+            <span class="about-stat-lbl">Happy Patients</span>
+          </div>
+          <div class="about-stat-divider"></div>
+          <div class="about-inline-stat">
+            <span class="about-stat-num" data-target="100" data-suffix="%">0%</span>
+            <span class="about-stat-lbl">Sterilisation Rate</span>
+          </div>
+        </div>
+
+        <a href="about.html" class="btn-primary" style="margin-top:2rem;">
           Learn More
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
         </a>
       </div>
 
-      <div class="about-video reveal">
-        <div class="about-video-bg">
-          <button class="play-btn" aria-label="Watch video">
-            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          </button>
-          <div class="about-clinic-label">
-            <span>Havila Dental</span>
-            <small>Anthony, Lagos</small>
-          </div>
+      <!-- Right: actual video -->
+      <div class="about-video-wrap reveal">
+        <video class="about-vid" autoplay muted loop playsinline>
+          <source src="about-video.mp4" type="video/mp4" />
+        </video>
+        <div class="about-video-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Anthony, Lagos
         </div>
       </div>
 
-      <div class="about-stats reveal-right">
-        <div class="stat-card">
-          <div class="stat-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div>
-            <div class="stat-number" data-target="10" data-suffix="+">0+</div>
-            <div class="stat-label">Years of Experience</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <div class="stat-number" data-target="2000" data-suffix="+">0+</div>
-            <div class="stat-label">Happy Patients</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <div class="stat-number" data-target="100" data-suffix="%">0%</div>
-            <div class="stat-label">Safety &amp; Sterilisation</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
