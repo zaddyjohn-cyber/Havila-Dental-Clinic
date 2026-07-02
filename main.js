@@ -4,26 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Custom Cursor ───────────────────────────────────────── */
-  const dot  = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  if (dot && ring && window.innerWidth > 768) {
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    const animCursor = () => {
-      dot.style.left  = mx + 'px';
-      dot.style.top   = my + 'px';
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animCursor);
-    };
-    animCursor();
-    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
-  }
-
   /* ── Navbar ──────────────────────────────────────────────── */
   const navbar = document.getElementById('navbar');
   const scrollTop = document.getElementById('scrollTop');
