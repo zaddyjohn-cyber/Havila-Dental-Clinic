@@ -749,17 +749,49 @@ h1, h2, h3, h4 {
 .values-section { padding: 7rem 0; background: var(--off-white); }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
 .value-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  padding: 2.2rem; box-shadow: var(--shadow); transition: transform var(--t), box-shadow var(--t);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+  min-height: 280px;
+  display: flex; flex-direction: column;
+  transition: transform var(--t), box-shadow var(--t);
 }
 .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.value-icon {
-  width: 52px; height: 52px; background: var(--green); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
+
+/* video / image fill */
+.value-card-media {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background-size: cover; background-position: center;
+  transition: transform 0.6s var(--ease);
 }
-.value-icon svg { width: 24px; height: 24px; stroke: var(--white); fill: none; }
-.value-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-.value-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+.value-card:hover .value-card-media { transform: scale(1.06); }
+
+/* content overlay pinned to bottom */
+.value-card-body {
+  position: relative; z-index: 2;
+  margin-top: auto;
+  padding: 1.4rem 1.4rem 1.4rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+.value-icon {
+  position: absolute; top: 1rem; left: 1rem; z-index: 3;
+  width: 42px; height: 42px; background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--t);
+}
+.value-card:hover .value-icon { background: var(--gold); }
+.value-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; }
+
+.value-card h4 {
+  font-size: 0.97rem; font-weight: 800; color: #fff;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.value-card p { font-size: 0.78rem; color: rgba(255,255,255,0.88); line-height: 1.6; }
 .team-section { padding: 7rem 0; background: var(--white); }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
 .team-card { text-align: center; }
