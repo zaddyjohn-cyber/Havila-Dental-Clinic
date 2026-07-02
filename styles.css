@@ -361,46 +361,48 @@ h1, h2, h3, h4 {
 }
 .service-card:hover .svc-media { transform: scale(1.06); }
 
-/* dark green overlay */
+/* overlay: sits in the lower portion of the card over empty video space */
 .svc-overlay {
-  position: relative; z-index: 1;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center;
-  padding: 1.8rem 1.2rem;
-  height: 100%;
-  background: linear-gradient(to top, rgba(10,30,24,0.92) 0%, rgba(26,60,52,0.72) 60%, rgba(26,60,52,0.55) 100%);
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  display: flex; flex-direction: column; align-items: flex-start;
+  text-align: left;
+  padding: 1.2rem 1.2rem 1.2rem;
+  background: transparent;
   transition: background var(--t);
 }
-.service-card:hover .svc-overlay {
-  background: linear-gradient(to top, rgba(10,30,24,0.82) 0%, rgba(26,60,52,0.55) 60%, rgba(26,60,52,0.35) 100%);
-}
+.service-card:hover .svc-overlay { background: transparent; }
 
+/* icon floats at top of card above overlay */
 .svc-icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  border: 1.5px solid rgba(255,255,255,0.2);
+  position: absolute; top: 1rem; left: 50%; transform: translateX(-50%);
+  z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none;
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1rem; transition: background var(--t), border-color var(--t);
+  transition: background var(--t), transform var(--t);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
-.service-card:hover .svc-icon { background: var(--gold); border-color: var(--gold); }
-.svc-icon svg { width: 24px; height: 24px; stroke: var(--white); fill: none; }
-.service-card:hover .svc-icon svg { stroke: var(--green-dark); }
+.service-card:hover .svc-icon { background: var(--gold); transform: translateX(-50%) scale(1.08); }
+.svc-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; transition: stroke var(--t); }
+.service-card:hover .svc-icon svg { stroke: var(--white); }
 
 .svc-name {
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem; font-weight: 700; color: var(--white);
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem; font-weight: 700; color: #000;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.8), 0 0 8px rgba(255,255,255,0.6);
 }
-.svc-desc { font-size: 0.76rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+.svc-desc { font-size: 0.76rem; color: #111; line-height: 1.55; margin-bottom: 0.8rem; text-shadow: 0 1px 3px rgba(255,255,255,0.8), 0 0 8px rgba(255,255,255,0.6); }
 .svc-arrow {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.3);
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1.5px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  margin-top: auto; transition: all var(--t);
+  transition: all var(--t);
 }
 .service-card:hover .svc-arrow { border-color: var(--gold); background: var(--gold); }
-.svc-arrow svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.7); fill: none; transition: stroke var(--t); }
-.service-card:hover .svc-arrow svg { stroke: var(--green-dark); }
+.svc-arrow svg { width: 13px; height: 13px; stroke: #000; fill: none; transition: stroke var(--t); }
+.service-card:hover .svc-arrow svg { stroke: var(--white); }
 
 /* ── WHY US ──────────────────────────────────────────────── */
 .why { padding: 7rem 0; background: var(--off-white); }
